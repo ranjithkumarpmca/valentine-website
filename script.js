@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
 
     // ❤️ Name
@@ -34,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 😈 Even YES kitta ponaalum NO odum
     ["mouseover", "touchstart"].forEach(evt => {
         yesBtn.addEventListener(evt, moveNoButton);
+        document.getElementById("question").style.display = "none";
     });
 
     // 🚫 Absolute block: NO click never fires
