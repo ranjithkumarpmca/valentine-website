@@ -1,23 +1,53 @@
-// Name from URL (WhatsApp link la pass pannalaam)
-const params = new URLSearchParams(window.location.search);
+document.addEventListener("DOMContentLoaded", () => {
 
-document.getElementById("name").innerText = "Hey Nithya ❤️";
+    // ❤️ Name
+    const nameEl = document.getElementById("name");
+    nameEl.innerText = "Hey Nithya ❤️";
 
-const noBtn = document.getElementById("noBtn");
-const yesBtn = document.getElementById("yesBtn");
-const result = document.getElementById("result");
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const result = document.getElementById("result");
+    const buttonsBox = document.querySelector(".buttons");
 
-// NO button odum 😈
-noBtn.addEventListener("mouseover", () => {
-    const x = Math.random() * 200;
-    const y = Math.random() * 60;
+    // 📐 Container size
+    const boxRect = buttonsBox.getBoundingClientRect();
 
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
-});
+    function moveNoButton() {
+        const maxX = boxRect.width - noBtn.offsetWidth;
+        const maxY = boxRect.height - noBtn.offsetHeight;
 
-// YES click panna happiness 🎉
-yesBtn.addEventListener("click", () => {
-    document.querySelector(".buttons").style.display = "none";
-    result.classList.remove("hidden");
+        const x = Math.random() * maxX;
+        const y = Math.random() * maxY;
+
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    }
+
+    // 🚫 NO means NO — escape on every interaction
+    ["mouseover", "mousedown", "mouseenter", "touchstart", "touchmove", "focus"].forEach(evt => {
+        noBtn.addEventListener(evt, (e) => {
+            e.preventDefault();
+            moveNoButton();
+        });
+    });
+
+    // 😈 Even YES kitta ponaalum NO odum
+    ["mouseover", "touchstart"].forEach(evt => {
+        yesBtn.addEventListener(evt, moveNoButton);
+    });
+
+    // 🚫 Absolute block: NO click never fires
+    noBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        moveNoButton();
+        return false;
+    });
+
+    // ❤️ YES = only destiny
+    yesBtn.addEventListener("click", () => {
+        buttonsBox.style.display = "none";
+        result.classList.remove("hidden");
+    });
+
 });
