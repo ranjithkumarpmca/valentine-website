@@ -1,11 +1,7 @@
 // Name from URL (WhatsApp link la pass pannalaam)
 const params = new URLSearchParams(window.location.search);
 
-const nameEl = document.getElementById("name");
-
-if (nameEl) {
-    nameEl.innerText = "Hey Nithya ❤️";
-}
+document.getElementById("name").innerText = "Hey Nithya ❤️";
 
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
@@ -25,5 +21,3 @@ yesBtn.addEventListener("click", () => {
     document.querySelector(".buttons").style.display = "none";
     result.classList.remove("hidden");
 });
-
-
