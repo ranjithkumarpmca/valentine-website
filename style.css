@@ -32,7 +32,7 @@ h2 {
 
 .buttons {
     position: relative;
-    height: 90px;
+    height: 140px;
 }
 
 button {
@@ -52,7 +52,8 @@ button {
     background-color: #dc3545;
     color: #fff;
     position: absolute;
-    left: 200px;
+    left: 0;             
+    top: 0;
 }
 
 .hidden {
@@ -63,3 +64,4 @@ img {
     width: 250px;
     margin-top: 20px;
 }
+
