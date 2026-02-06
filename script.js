@@ -35,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // 😈 Even YES kitta ponaalum NO odum
     ["mouseover", "touchstart"].forEach(evt => {
         yesBtn.addEventListener(evt, moveNoButton);
-        document.getElementById("question").style.display = "none";
     });
 
     // 🚫 Absolute block: NO click never fires
@@ -50,6 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
     yesBtn.addEventListener("click", () => {
         buttonsBox.style.display = "none";
         result.classList.remove("hidden");
+        document.getElementById("question").style.display = "none";
     });
 
 });
+
