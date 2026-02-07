@@ -11,6 +11,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const buttonsBox = document.querySelector(".buttons");
     const heartsContainer = document.getElementById("hearts");
 
+    const noMessages = [
+        "😤 Don’t touch me!",
+        "🤨 This could be a mistake…",
+        "❌ No means NO!",
+        "😈 Only YES works!",
+        "😂 Nice try!"
+    ];
+    let msgIndex = 0;
+
     // ❤️ Floating hearts create pannum
     setInterval(() => {
         const heart = document.createElement("div");
@@ -35,6 +44,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         noBtn.style.left = x + "px";
         noBtn.style.top = y + "px";
+
+        noBtn.innerText = noMessages[msgIndex];
+        msgIndex = (msgIndex + 1) % noMessages.length;
     }
 
     // 🚫 NO means NO — escape on every interaction
@@ -66,4 +78,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
 
