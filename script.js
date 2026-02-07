@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "#2196f3", // blue
         "#00bcd4", // cyan
         "#4caf50", // green
-        "#e91e63"  // pink
+        "#e91e63",  // pink
         "#3f51b5", // indigo
         "#009688"  // teal
     ];
@@ -95,6 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
 
 
 
