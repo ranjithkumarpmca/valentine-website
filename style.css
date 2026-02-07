@@ -67,9 +67,9 @@ img {
 
 .heart {
     position: absolute;
-    color: red;
-    font-size: 22px;
     animation: floatUp linear infinite;
+    user-select: none;
+    pointer-events: none;
 }
 
 @keyframes floatUp {
@@ -82,4 +82,5 @@ img {
         opacity: 0;
     }
 }
+
 
