@@ -20,10 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     const noColors = [
-        "#dc3545", // red
         "#ff9800", // orange
         "#9c27b0", // purple
         "#2196f3", // blue
+        "#00bcd4", // cyan
+        "#4caf50", // green
         "#e91e63"  // pink
     ];
     
@@ -89,6 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
 
 
 
