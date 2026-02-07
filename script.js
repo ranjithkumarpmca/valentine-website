@@ -16,7 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
         "🤨 This could be a mistake…",
         "❌ No means NO!",
         "😈 Only YES works!",
-        "😂 Nice try!"
+        "😂 Nice try!",
+        "🙈 Nope, try again!",
+        "🚫 Access Denied!",
+        "⚠️ Invalid Action!"
     ];
 
     const noColors = [
@@ -26,6 +29,8 @@ document.addEventListener("DOMContentLoaded", () => {
         "#00bcd4", // cyan
         "#4caf50", // green
         "#e91e63"  // pink
+        "#3f51b5", // indigo
+        "#009688"  // teal
     ];
     
     let msgIndex = 0;
@@ -90,6 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
 
 
 
