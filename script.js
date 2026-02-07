@@ -39,14 +39,17 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(() => {
         const heart = document.createElement("div");
         heart.classList.add("heart");
-        heart.innerText = "❤️";
+    
+        const loveItems = ["❤️", "🍫", "🧸", "💝", "😘", "💖", "😍"];
+        heart.innerText = loveItems[Math.floor(Math.random() * loveItems.length)];
+    
         heart.style.left = Math.random() * 100 + "vw";
-        heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+        heart.style.fontSize = (18 + Math.random() * 20) + "px";
+        heart.style.animationDuration = (3 + Math.random() * 4) + "s";
+    
         heartsContainer.appendChild(heart);
-
-        setTimeout(() => heart.remove(), 6000);
-    }, 300);
-
+        setTimeout(() => heart.remove(), 7000);
+    }, 350);
 
     function moveNoButton() {
         
@@ -95,6 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
 
 
 
