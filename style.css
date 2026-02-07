@@ -87,3 +87,9 @@ button {
         opacity: 0;
     }
 }
+
+img {
+    width: 160px;  
+    height: auto; 
+    margin-top: 20px;
+}
