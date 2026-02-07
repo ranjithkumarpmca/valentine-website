@@ -5,62 +5,85 @@
 body {
     margin: 0;
     height: 100vh;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to right, #ff758c, #ff7eb3);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    overflow: hidden;
 }
 
 .container {
-    background: #fff;
-    padding: 40px 50px;
-    border-radius: 18px;
+    position: relative;
+    z-index: 2;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
     text-align: center;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
     width: 90%;
     max-width: 420px;
-}
-
-h1 {
-    margin-bottom: 10px;
-}
-
-h2 {
-    margin-bottom: 30px;
+    margin: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
 
 .buttons {
     position: relative;
-    height: 140px;
+    height: 100px;
 }
 
 button {
-    padding: 12px 28px;
+    padding: 14px 32px;
     font-size: 18px;
     border: none;
-    border-radius: 12px;
+    border-radius: 14px;
     cursor: pointer;
 }
 
 #yesBtn {
-    background-color: #28a745;
-    color: #fff;
+    background: #28a745;
+    color: white;
 }
 
 #noBtn {
-    background-color: #dc3545;
-    color: #fff;
+    background: #dc3545;
+    color: white;
     position: absolute;
-    left: 0;             
-    top: 0;
+    left: 220px;
+}
+
+#noMsg {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #dc3545;
+    animation: shake 0.4s;
 }
 
 .hidden {
     display: none;
 }
 
-img {
-    width: 250px;
-    margin-top: 20px;
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+/* Floating hearts */
+.heart {
+    position: absolute;
+    color: red;
+    font-size: 22px;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(100vh) scale(0.8);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+    }
 }
