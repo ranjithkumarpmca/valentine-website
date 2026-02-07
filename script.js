@@ -18,6 +18,15 @@ document.addEventListener("DOMContentLoaded", () => {
         "😈 Only YES works!",
         "😂 Nice try!"
     ];
+
+    const noColors = [
+        "#dc3545", // red
+        "#ff9800", // orange
+        "#9c27b0", // purple
+        "#2196f3", // blue
+        "#e91e63"  // pink
+    ];
+    
     let msgIndex = 0;
 
     // ❤️ Floating hearts create pannum
@@ -47,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
         noBtn.style.top = y + "px";
 
         noBtn.innerText = noMessages[msgIndex];
+        noBtn.style.backgroundColor = noColors[msgIndex];
         msgIndex = (msgIndex + 1) % noMessages.length;
     }
 
@@ -79,6 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
 
 
 
