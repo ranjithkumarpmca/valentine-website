@@ -32,10 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => heart.remove(), 6000);
     }, 300);
 
-    // 📐 Container size
-    const boxRect = buttonsBox.getBoundingClientRect();
 
     function moveNoButton() {
+        
+        const boxRect = buttonsBox.getBoundingClientRect();
+        
         const maxX = boxRect.width - noBtn.offsetWidth;
         const maxY = boxRect.height - noBtn.offsetHeight;
 
@@ -50,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // 🚫 NO means NO — escape on every interaction
-    ["mouseover", "mousedown", "mouseenter", "touchstart", "touchmove", "focus"].forEach(evt => {
+    ["mouseover", "mousedown", "touchstart", "touchmove", "focus"].forEach(evt => {
         noBtn.addEventListener(evt, (e) => {
             e.preventDefault();
             moveNoButton();
@@ -78,5 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
 
 
