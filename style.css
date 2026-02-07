@@ -64,3 +64,22 @@ img {
     width: 250px;
     margin-top: 20px;
 }
+
+.heart {
+    position: absolute;
+    color: red;
+    font-size: 22px;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(100vh) scale(0.8);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+    }
+}
+
