@@ -110,16 +110,34 @@
       "album": "Leelai",
       "artist": "",
       "cover": "/valentine-website/assets/album-covers/orukili.jpg",
-      "audio": "/valentine-website/assets/songs/Oru_Kili_Oru_Kili.mp3"
+      "audio": "/valentine-website/assets/songs/Oru_Kili-oru-kili.mp3"
     },
     {
       "id": 3,
+      "title": "Oorum Blood",
+      "duration": "0.48",
+      "album": "Dude",
+      "artist": "",
+      "cover": "/valentine-website/assets/album-covers/oorumblood.jpg",
+      "audio": "/valentine-website/assets/songs/Oorum-blood.mp3"
+    },
+    {
+      "id": 4,
       "title": "Aasa Kooda",
       "duration": "3.35",
       "album": "Album",
       "artist": "",
       "cover": "/valentine-website/assets/album-covers/aasakooda.jpg",
       "audio": "/valentine-website/assets/songs/Aasa Kooda.mp3"
+    },
+    {
+      "id": 5,
+      "title": "Nee Partha Vizhigal",
+      "duration": "4.24",
+      "album": "3",
+      "artist": "",
+      "cover": "/valentine-website/assets/album-covers/neeparthavizhigal.jpg",
+      "audio": "/valentine-website/assets/songs/Nee-paartha-vizhigal.mp3"
     }
   ],
   "letter": {
