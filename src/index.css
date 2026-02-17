@@ -21,7 +21,7 @@ body {
   align-items: center;
   justify-content: center;
   will-change: scroll-position;
-  cursor: url("./assets/red-heart.png"), pointer;
+  cursor: url("/assets/red-heart.png"), pointer;
 }
 
 .valentine-root {

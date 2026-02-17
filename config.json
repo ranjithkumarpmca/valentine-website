@@ -25,70 +25,70 @@
     "prosConsSubtitle": "Nothing!!!!"
   },
   "media": {
-    "mainBearGif": "/src/assets/cute-bear.gif",
-    "musicBearGif": "/src/assets/music-bear.gif",
-    "comfortBearGif": "/src/assets/comfort-bear.gif",
-    "kissBearGif": "/src/assets/kiss-bears.gif",
-    "photoBearGif": "/src/assets/photo-bear.gif",
-    "loveYouBearGif": "/src/assets/love-you-bear.gif",
-    "childGif": "/src/assets/child.gif",
-    "roseBearGif": "/src/assets/rose-bear.gif",
-    "cookBearGif": "/src/assets/cook-bear.gif",
-    "kissSingleBearGif": "/src/assets/kiss-bear.gif",
-    "leftButton": "/src/assets/left-button.png",
-    "rightButton": "/src/assets/right-button.png",
+    "mainBearGif": "/valentine-website/assets/cute-bear.gif",
+    "musicBearGif": "/valentine-website/assets/music-bear.gif",
+    "comfortBearGif": "/valentine-website/assets/comfort-bear.gif",
+    "kissBearGif": "/valentine-website/assets/kiss-bears.gif",
+    "photoBearGif": "/valentine-website/assets/photo-bear.gif",
+    "loveYouBearGif": "/valentine-website/assets/love-you-bear.gif",
+    "childGif": "/valentine-website/assets/child.gif",
+    "roseBearGif": "/valentine-website/assets/rose-bear.gif",
+    "cookBearGif": "/valentine-website/assets/cook-bear.gif",
+    "kissSingleBearGif": "/valentine-website/assets/kiss-bear.gif",
+    "leftButton": "/valentine-website/assets/left-button.png",
+    "rightButton": "/valentine-website/assets/right-button.png",
     "envelopeSeal": "❤️"
   },
   "gifts": {
-    "gift1": "/src/assets/gift/gift1.jpg",
-    "gift2": "/src/assets/gift/gift2.jpg"
+    "gift1": "/valentine-website/assets/gift/gift1.jpg",
+    "gift2": "/valentine-website/assets/gift/gift2.jpg"
   },
   "couplePhotos": [
     {
-      "image": "/src/assets/couple_photo/couple_photo_1.jpg",
+      "image": "/valentine-website/assets/couple_photo/couple_photo_1.jpg",
       "caption": "Our first special moment together"
     },
     {
-      "image": "/src/assets/couple_photo/couple_photo_2.jpg", 
+      "image": "/valentine-website/assets/couple_photo/couple_photo_2.jpg", 
       "caption": "Cooking memories together"
     },
     {
-      "image": "/src/assets/couple_photo/couple_photo_3.jpg",
+      "image": "/valentine-website/assets/couple_photo/couple_photo_3.jpg",
       "caption": "Our favorite music moments"
     },
     {
-      "image": "/src/assets/couple_photo/couple_photo_4.jpg",
+      "image": "/valentine-website/assets/couple_photo/couple_photo_4.jpg",
       "caption": "When you made me smile like this"
     },
     {
-      "image": "/src/assets/couple_photo/couple_photo_5.jpg",
+      "image": "/valentine-website/assets/couple_photo/couple_photo_5.jpg",
       "caption": "Our heart-to-heart talks"
     },
     {
-      "image": "/src/assets/couple_photo/couple_photo_6.jpg",
+      "image": "/valentine-website/assets/couple_photo/couple_photo_6.jpg",
       "caption": "Your comforting presence"
     }
   ],
   "prosCons": [
     
     {
-      "gif": "/src/assets/comfort-bear.gif", 
+      "gif": "/valentine-website/assets/comfort-bear.gif", 
       "text": "Unlimited comfort and care"
     },
     {
-      "gif": "/src/assets/cute-bear.gif",
+      "gif": "/valentine-website/assets/cute-bear.gif",
       "text": "I listen… like actually listen"
     },
     {
-      "gif": "/src/assets/kiss-bears.gif",
+      "gif": "/valentine-website/assets/kiss-bears.gif",
       "text": "Unlimited hugs & kisses\n(non-negotiable 😏)"
     },
     {
-      "gif": "/src/assets/photo-bear.gif",
+      "gif": "/valentine-website/assets/photo-bear.gif",
       "text": "Your personal photographer for all the cute moments 📸"
     },
     {
-      "gif": "/src/assets/music-bear.gif",
+      "gif": "/valentine-website/assets/music-bear.gif",
       "text": "Live singing performances… just for you 🎶😉"
     }
   ],
@@ -99,8 +99,8 @@
       "duration": "5:15",
       "album": "Rowthiram",
       "artist": "",
-      "cover": "/src/assets/album-covers/maalai-mangum.jpg",
-      "audio": "/src/assets/songs/Maalai-Mangum-Neram.mp3"
+      "cover": "/valentine-website/assets/album-covers/maalai-mangum.jpg",
+      "audio": "/valentine-website/assets/songs/Maalai-Mangum-Neram.mp3"
     },
     {
       "id": 2,
@@ -108,8 +108,8 @@
       "duration": "5.41", 
       "album": "Leelai",
       "artist": "",
-      "cover": "/src/assets/album-covers/orukili.jpg",
-      "audio": "/src/assets/songs/Oru_Kili_Oru_Kili.mp3"
+      "cover": "/valentine-website/assets/album-covers/orukili.jpg",
+      "audio": "/valentine-website/assets/songs/Oru_Kili_Oru_Kili.mp3"
     },
     {
       "id": 3,
@@ -117,8 +117,8 @@
       "duration": "3.35",
       "album": "Album",
       "artist": "",
-      "cover": "/src/assets/album-covers/aasakooda.jpg",
-      "audio": "/src/assets/songs/Aasa Kooda.mp3"
+      "cover": "/valentine-website/assets/album-covers/aasakooda.jpg",
+      "audio": "/valentine-website/assets/songs/Aasa Kooda.mp3"
     }
   ],
   "letter": {
