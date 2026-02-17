@@ -14,6 +14,9 @@ function App() {
   const [view, setView] = useState("home");
   const [envelopeOpen, setEnvelopeOpen] = useState(false);
   const [giftsOpened, setGiftsOpened] = useState(new Set());
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [password, setPassword] = useState('');
+  const [passwordError, setPasswordError] = useState(false);
 
   // Media player state
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
@@ -29,7 +32,20 @@ function App() {
 
   const slides = useMemo(() => config.prosCons, []);
 
+ const handleLogin = useCallback(() => {
+  if (password.toLowerCase() === 'nithyaranjith') {
+    setIsLoggedIn(true);
+    setPasswordError(false);
+  } else {
+    setPasswordError(true);
+    setPassword('');
+  }
+}, [password]);
+
  useEffect(() => {
+
+  if (!isLoggedIn) return;
+
   const heartEmojis = ['💗','💖','💕','❤️','💓','😘','🍫','💝','😍','🥰'];
   
   const createHeart = () => {
@@ -46,7 +62,7 @@ function App() {
       animation: none;
     `;
     
-    document.body.appendChild(heart);  /* 👈 body la direct ah add */
+    document.body.appendChild(heart);
     
     let pos = -50;
     const moveUp = setInterval(() => {
@@ -63,7 +79,7 @@ function App() {
 
   const interval = setInterval(createHeart, 800);
   return () => clearInterval(interval);
-}, []);
+}, [isLoggedIn]);
 
   const handleNoEnter = useCallback(() => {
     // if (!hoveredOnce) {
@@ -208,6 +224,137 @@ function App() {
     }
   }, []);
 
+  if (!isLoggedIn) {
+  return (
+    <div style={{
+      minHeight: '100vh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      background: 'linear-gradient(135deg, #ff9a9e, #fad0c4)'
+    }}>
+
+      {/* 👇 POPUP - idha vaikkanum, return உள்ளே */}
+      {passwordError && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: 'rgba(0,0,0,0.5)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 999
+          }}
+          onClick={() => { setPasswordError(false); setPassword(''); }}
+        >
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.3, ease: "backOut" }}
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              background: 'white',
+              borderRadius: '24px',
+              padding: '40px',
+              width: '340px',
+              textAlign: 'center',
+              boxShadow: '0 20px 60px rgba(0,0,0,0.3)',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '16px'
+            }}
+          >
+            <span style={{ fontSize: '60px' }}>🚫</span>
+            <h2 style={{ fontSize: '22px', fontWeight: 800, color: '#7a1143', margin: 0, fontFamily: 'Playfair Display, serif' }}>
+              Access Denied!
+            </h2>
+            <p style={{ fontSize: '16px', color: '#ff5f9e', margin: 0, fontWeight: 600, fontFamily: 'Playfair Display, serif', lineHeight: 1.5 }}>
+              Sorry! 🙅‍♂️ You are not an authorized person to enter this special place! 💔
+            </p>
+            <p style={{ fontSize: '14px', color: '#999', margin: 0, fontFamily: 'Playfair Display, serif', fontStyle: 'italic' }}>
+              This place is only for someone very special 🌹
+            </p>
+            <motion.button
+              className="btn yes"
+              onClick={() => { setPasswordError(false); setPassword(''); }}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              style={{ width: '100%', padding: '12px', fontSize: '16px' }}
+            >
+              Try Again 💗
+            </motion.button>
+          </motion.div>
+        </motion.div>
+      )}
+
+      {/* login card */}
+      <div style={{
+        background: 'white',
+        borderRadius: '24px',
+        padding: '40px',
+        width: '380px',
+        height: '420px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '16px',
+        boxShadow: '0 24px 48px rgba(122, 17, 67, 0.15)',
+        position: 'relative',
+        zIndex: 10
+      }}>
+        <motion.img
+          src={config.media.bubuGif}
+          alt="cute bear"
+          style={{ width: '120px', height: '120px', borderRadius: '16px', objectFit: 'cover' }}
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+        />
+        <h1 style={{ fontSize: '24px', fontWeight: 800, color: '#7a1143', margin: 0, fontFamily: 'Playfair Display, serif' }}>
+          Hey! Who's there? 🐻
+        </h1>
+        <p style={{ fontSize: '15px', color: '#ff5f9e', margin: 0, fontWeight: 600, fontFamily: 'Playfair Display, serif' }}>
+          Enter the secret password 🔐
+        </p>
+        <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+          <input
+            type="password"
+            style={{
+              width: '100%',
+              padding: '12px 20px',
+              border: `2px solid ${passwordError ? '#ff0000' : '#ff7aa2'}`,
+              borderRadius: '25px',
+              fontSize: '15px',
+              textAlign: 'center',
+              outline: 'none',
+              fontFamily: 'Playfair Display, serif',
+              color: '#7a1143',
+              boxSizing: 'border-box'
+            }}
+            placeholder="Enter password 💗"
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              setPasswordError(false);
+            }}
+            onKeyDown={(e) => e.key === 'Enter' && handleLogin()}
+          />
+        </div>
+        <button
+          className="btn yes"
+          onClick={handleLogin}
+          style={{ width: '100%', padding: '12px', fontSize: '16px' }}
+        >
+          Enter 💝
+        </button>
+      </div>
+    </div>
+  );
+}
   
 
   if (view === "success") {
