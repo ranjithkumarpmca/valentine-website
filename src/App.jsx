@@ -653,8 +653,7 @@ function App() {
                 ✕
               </button>
               <p className="popup-text">
-                Maybe I should explain the perks of being my Valentine… let me
-                tell you 😉
+                Don’t worry, let me walk you through the perks… it might just change your mind 😉
               </p>
               <motion.button
                 className="btn okay-btn"
