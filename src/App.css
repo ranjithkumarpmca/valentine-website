@@ -995,4 +995,19 @@ body {
   .volume-bar-container {
     width: 120px;
   }
+
+.valentine-root {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;  /* 👈 add pannu */
+  z-index: 1;          /* 👈 add pannu */
+}
+
+.card {
+  position: relative;
+  z-index: 1;    /* 👈 idha add pannu */
+}
+  
 }

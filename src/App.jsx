@@ -1,6 +1,8 @@
-import { useState, useMemo, useCallback, useRef } from "react";
+import { useState, useMemo, useCallback, useRef,useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { config } from "./config";
+
+
 
 function App() {
   const [noLabel, setNoLabel] = useState("NO 💔");
@@ -27,6 +29,42 @@ function App() {
 
   const slides = useMemo(() => config.prosCons, []);
 
+ useEffect(() => {
+  const heartEmojis = ['💗','💖','💕','❤️','💓','😘','🍫','💝','😍','🥰'];
+  
+  const createHeart = () => {
+    const heart = document.createElement('span');
+    heart.innerHTML = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+    heart.style.cssText = `
+      position: fixed;
+      left: ${Math.random() * 100}%;
+      bottom: -50px;
+      font-size: ${Math.random() * 20 + 15}px;
+      pointer-events: none;
+      z-index: 0;
+      transition: none;
+      animation: none;
+    `;
+    
+    document.body.appendChild(heart);  /* 👈 body la direct ah add */
+    
+    let pos = -50;
+    const moveUp = setInterval(() => {
+      pos += 3;
+      heart.style.bottom = pos + 'px';
+      heart.style.opacity = String(1 - (pos / window.innerHeight));
+      
+      if (pos > window.innerHeight) {
+        clearInterval(moveUp);
+        heart.remove();
+      }
+    }, 20);
+  };
+
+  const interval = setInterval(createHeart, 800);
+  return () => clearInterval(interval);
+}, []);
+
   const handleNoEnter = useCallback(() => {
     // if (!hoveredOnce) {
       setShowHoverPopup(true);
@@ -35,6 +73,8 @@ function App() {
     //   setNoLabel("YESSS ❤️");
     // }
   }, [hoveredOnce]);
+
+  
 
   const handleNoLeave = useCallback(() => {
     if (hoveredOnce) {
@@ -167,6 +207,8 @@ function App() {
       audioRef.current.volume = newVolume;
     }
   }, []);
+
+  
 
   if (view === "success") {
     return (
