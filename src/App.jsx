@@ -803,6 +803,7 @@ function App() {
               className="btn no"
               onMouseEnter={handleNoEnter}
               onMouseLeave={handleNoLeave}
+              onClick={handleNoEnter}
               aria-label="No button"
               whileHover={{
                 scale: 1.05,
