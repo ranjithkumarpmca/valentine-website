@@ -111,7 +111,7 @@
       "album": "Leelai",
       "artist": "",
       "cover": "/valentine-website/assets/album-covers/orukili.jpg",
-      "audio": "/valentine-website/assets/songs/Oru-Kili.mp3",
+      "audio": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674545/Oru-Kili_v4wbtj.mp3",
       "video": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674598/Oru-Kili_ru4at1.mp4"
     },
     {
@@ -151,7 +151,7 @@
       "album": "Bheema",
       "artist": "",
       "cover": "/valentine-website/assets/album-covers/Ragasiya-Kanavugal.jpg",
-      "audio": "/valentine-website/assets/songs/Ragasiya-Kanavugal.mp3",
+      "audio": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674544/Ragasiya-Kanavugal_z5zrnd.mp4",
       "video": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674590/Ragasiya-Kanavugal_ack8g0.mp4"
     },
     {
@@ -161,7 +161,7 @@
       "album": "Jeans",
       "artist": "",
       "cover": "/valentine-website/assets/album-covers/Poovukkul.jpg",
-      "audio": "/valentine-website/assets/songs/Poovukkul.mp3",
+      "audio": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674542/Poovukkul_yxyrpy.webm",
       "video": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674892/Poovukkul_m4nt5o.mp4"
     },
     {
@@ -181,7 +181,7 @@
       "album": "Alli Arjuna",
       "artist": "",
       "cover": "/valentine-website/assets/album-covers/Sollayo-Solaikili.jpg",
-      "audio": "/valentine-website/assets/songs/Sollayo-Solaikili.mp3",
+      "audio": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674544/Sollayo-Solaikili_zqrkbd.mp4",
       "video": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674604/Sollayo-Solaikili_ugzfgu.mp4"
     },
      {
