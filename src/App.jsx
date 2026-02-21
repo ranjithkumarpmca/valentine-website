@@ -3,6 +3,18 @@ import { motion, AnimatePresence } from "framer-motion";
 import { config } from "./config";
 
 
+//For new Password generation when you wants in future
+
+
+// const encoder = new TextEncoder();
+// const data = encoder.encode('your password');
+// const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+// const hashHex = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+// console.log(hashHex);
+
+
+
+const CORRECT_HASH = "4c2a1c6301416b0e5291d0fd12d7aebc01f3b494fb4d39f2e9b6fa9c058099f9";
 
 function App() {
   const [noLabel, setNoLabel] = useState("NO 💔");
@@ -24,6 +36,10 @@ function App() {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [isVideoMode, setIsVideoMode] = useState(false);
+  const videoRef = useRef(null);
+  const SONGS_PER_PAGE = 5;
 
   const audioRef = useRef(null);
 
@@ -32,8 +48,13 @@ function App() {
 
   const slides = useMemo(() => config.prosCons, []);
 
- const handleLogin = useCallback(() => {
-  if (password.toLowerCase() === 'nithyaranjith') {
+const handleLogin = useCallback(async () => {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(password.toLowerCase());
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  const hashHex = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+  
+  if (hashHex === CORRECT_HASH) {
     setIsLoggedIn(true);
     setPasswordError(false);
   } else {
@@ -159,15 +180,57 @@ function App() {
   }, []);
 
   const handlePlayPause = useCallback(() => {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play();
+    if (isVideoMode) {
+      if (videoRef.current) {
+        if (isPlaying) {
+          videoRef.current.pause();
+        } else {
+          videoRef.current.play();
+        }
+        setIsPlaying(!isPlaying);
       }
-      setIsPlaying(!isPlaying);
+    } else {
+      if (audioRef.current) {
+        if (isPlaying) {
+          audioRef.current.pause();
+        } else {
+          audioRef.current.play();
+        }
+        setIsPlaying(!isPlaying);
+      }
     }
-  }, [isPlaying]);
+  }, [isPlaying, isVideoMode]);
+
+  const handleVideoToggle = useCallback(() => {
+      if (!isVideoMode) {
+        // Audio → Video: sync timestamp
+        if (audioRef.current) {
+          const syncTime = audioRef.current.currentTime;
+          audioRef.current.pause();
+          setIsVideoMode(true);
+          setTimeout(() => {
+            if (videoRef.current) {
+              videoRef.current.currentTime = syncTime;
+              videoRef.current.play();
+            }
+          }, 100);
+        }
+      } else {
+        // Video → Audio: sync timestamp
+        if (videoRef.current) {
+          const syncTime = videoRef.current.currentTime;
+          videoRef.current.pause();
+          setIsVideoMode(false);
+          setTimeout(() => {
+            if (audioRef.current) {
+              audioRef.current.currentTime = syncTime;
+              audioRef.current.play();
+              setIsPlaying(true);
+            }
+          }, 100);
+        }
+      }
+  }, [isVideoMode]);
 
   const handleNext = useCallback(() => {
     setCurrentSongIndex((prev) => (prev + 1) % songs.length);
@@ -177,14 +240,6 @@ function App() {
     setCurrentSongIndex((prev) => (prev - 1 + songs.length) % songs.length);
   }, [songs.length]);
 
-  // const handleSongSelect = useCallback((index) => {
-  //   setCurrentSongIndex(index);
-  //   if (audioRef.current) {
-  //     // audioRef.current.load();
-  //     // audioRef.current.play();
-  //     setIsPlaying(true);
-  //   }
-  // }, []);
 
   const handleSongSelect = useCallback((index) => {
     setCurrentSongIndex(index);
@@ -198,6 +253,8 @@ function App() {
         audioRef.current.play();
       }
     }
+    setCurrentPage(Math.floor(currentSongIndex / SONGS_PER_PAGE));
+    setIsVideoMode(false);
   }, [currentSongIndex]);
 
   const handleTimeUpdate = useCallback(() => {
@@ -216,19 +273,20 @@ function App() {
     handleNext();
   }, [handleNext]);
 
-  const handleProgressClick = useCallback(
-    (e) => {
-      if (audioRef.current) {
-        const rect = e.currentTarget.getBoundingClientRect();
-        const clickX = e.nativeEvent.offsetX;
-        const width = rect.width;
-        const progress = clickX / width;
-        audioRef.current.currentTime = progress * duration;
-        setCurrentTime(progress * duration);
-      }
-    },
-    [duration],
-  );
+  const handleProgressClick = useCallback((e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const clickX = e.nativeEvent.offsetX;
+    const width = rect.width;
+    const progress = clickX / width;
+    const newTime = progress * duration;
+
+    if (isVideoMode && videoRef.current) {
+      videoRef.current.currentTime = newTime;
+    } else if (audioRef.current) {
+      audioRef.current.currentTime = newTime;
+    }
+    setCurrentTime(newTime);
+  }, [duration, isVideoMode]);
 
   const handleVolumeChange = useCallback((e) => {
     const newVolume = parseFloat(e.target.value);
@@ -513,21 +571,72 @@ function App() {
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
               {/* Album Art Section */}
-              <div className="album-art-section">
+             <div className="album-art-section">
                 <motion.div
                   className="album-art-frame"
-                  whileHover={{ scale: 1.02 }}
+                  whileHover={{ scale: isVideoMode ? 1 : 1.02 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
-                  <div className="album-art">
-                    <img
-                      src={currentSong.cover}
-                      alt="Album Cover"
-                      loading="lazy"
-                      className="album-image"
+                  {/* Video player - always rendered but hidden in audio mode */}
+                  {currentSong.video && (
+                    <video
+                      ref={videoRef}
+                      src={currentSong.video}
+                      style={{
+                        width: "100%",
+                        borderRadius: "12px",
+                        objectFit: "cover",
+                        visibility: isVideoMode ? "visible" : "hidden",
+                        height: isVideoMode ? "200px" : "0px",
+                        maxHeight: "200px",
+                      }}
+                      onTimeUpdate={() => {
+                        if (isVideoMode && videoRef.current) {
+                          setCurrentTime(videoRef.current.currentTime);
+                        }
+                      }}
+                      onEnded={handleNext}
                     />
-                  </div>
+                  )}
+
+                  {/* Album art - hidden in video mode */}
+                  {!isVideoMode && (
+                    <div className="album-art">
+                      <img
+                        src={currentSong.cover}
+                        alt="Album Cover"
+                        loading="lazy"
+                        className="album-image"
+                      />
+                    </div>
+                  )}
                 </motion.div>
+
+                {/* Toggle Button */}
+                {currentSong.video && (
+                  <motion.button
+                    onClick={handleVideoToggle}
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    style={{
+                      marginTop: "10px",
+                      padding: "8px 20px",
+                      borderRadius: "20px",
+                      border: "none",
+                      background: isVideoMode ? "#ff7aa2" : "#ffe0eb",
+                      color: isVideoMode ? "white" : "#ff7aa2",
+                      fontWeight: "bold",
+                      cursor: "pointer",
+                      fontSize: "13px",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "6px",
+                      margin: "10px auto 0 auto"
+                    }}
+                  >
+                    {isVideoMode ? "🎵 Audio Mode" : "🎬 Watch Video"}
+                  </motion.button>
+                )}
 
                 <div className="album-info">
                   <h2 className="album-title">{currentSong.album}</h2>
@@ -621,28 +730,58 @@ function App() {
             </motion.div>
 
             {/* Song Playlist */}
-            <div className="song-playlist">
-              <h3 className="playlist-title">{config.content.songsTitle}</h3>
-              <div className="playlist-container">
-                {songs.map((song, index) => (
-                  <motion.div
-                    key={song.id}
-                    className={`playlist-item ${index === currentSongIndex ? "active" : ""}`}
-                    onClick={() => handleSongSelect(index)}
-                    whileHover={{ x: 5 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+           <div className="song-playlist">
+            <h3 className="playlist-title">{config.content.songsTitle}</h3>
+  
+            {/* Paginated Songs */}
+            <div className="playlist-container">
+              {songs
+                .slice(currentPage * SONGS_PER_PAGE, (currentPage + 1) * SONGS_PER_PAGE)
+                .map((song, index) => {
+                  const actualIndex = currentPage * SONGS_PER_PAGE + index;
+                  return (
+                    <motion.div
+                      key={song.id}
+                      className={`playlist-item ${actualIndex === currentSongIndex ? "active" : ""}`}
+                      onClick={() => handleSongSelect(actualIndex)}
+                      whileHover={{ x: 5 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    >
+                      <div className="playlist-item-left">
+                        <div className="playlist-number">
+                          {String(actualIndex + 1).padStart(2, "0")}
+                        </div>
+                        <div className="playlist-info">
+                          <h4 className="playlist-title-text">{song.title}</h4>
+                          <p className="playlist-artist">{song.artist}</p>
+                        </div>
+                      </div>
+                      <div className="playlist-duration">{song.duration}</div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+              <div style={{ display: "flex", justifyContent: "center", gap: "8px", marginTop: "12px" }}>
+                {Array.from({ length: Math.ceil(songs.length / SONGS_PER_PAGE) }).map((_, i) => (
+                  <motion.button
+                    key={i}
+                    onClick={() => setCurrentPage(i)}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    style={{
+                      width: "32px",
+                      height: "32px",
+                      borderRadius: "50%",
+                      border: "none",
+                      background: currentPage === i ? "#ff7aa2" : "#ffe0eb",
+                      color: currentPage === i ? "white" : "#ff7aa2",
+                      fontWeight: "bold",
+                      cursor: "pointer",
+                      fontSize: "13px",
+                    }}
                   >
-                    <div className="playlist-item-left">
-                      <div className="playlist-number">
-                        {String(index + 1).padStart(2, "0")}
-                      </div>
-                      <div className="playlist-info">
-                        <h4 className="playlist-title-text">{song.title}</h4>
-                        <p className="playlist-artist">{song.artist}</p>
-                      </div>
-                    </div>
-                    <div className="playlist-duration">{song.duration}</div>
-                  </motion.div>
+                    {i + 1}
+                  </motion.button>
                 ))}
               </div>
             </div>

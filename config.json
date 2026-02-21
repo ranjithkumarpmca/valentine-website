@@ -101,7 +101,8 @@
       "album": "Rowthiram",
       "artist": "",
       "cover": "/valentine-website/assets/album-covers/maalai-mangum.jpg",
-      "audio": "/valentine-website/assets/songs/Maalai-Mangum-Neram.mp3"
+      "audio": "/valentine-website/assets/songs/Malai-Mangum-Neram.mp3",
+      "video": "/valentine-website/assets/songs/Malai-Mangum-Neram.mp4"
     },
     {
       "id": 2,
@@ -110,7 +111,8 @@
       "album": "Leelai",
       "artist": "",
       "cover": "/valentine-website/assets/album-covers/orukili.jpg",
-      "audio": "/valentine-website/assets/songs/Oru_Kili_Oru_Kili.mp3"
+      "audio": "/valentine-website/assets/songs/Oru-Kili.mp3",
+      "video": "/valentine-website/assets/songs/Oru-Kili.mp4"
     },
     {
       "id": 3,
@@ -119,7 +121,8 @@
       "album": "Dude",
       "artist": "",
       "cover": "/valentine-website/assets/album-covers/oorumblood.jpg",
-      "audio": "/valentine-website/assets/songs/Oorum-blood.mp3"
+      "audio": "/valentine-website/assets/songs/Oorum-blood.mp3",
+      "video": "/valentine-website/assets/songs/Oorum-blood.mp4"
     },
     {
       "id": 4,
@@ -128,7 +131,8 @@
       "album": "Album",
       "artist": "",
       "cover": "/valentine-website/assets/album-covers/aasakooda.jpg",
-      "audio": "/valentine-website/assets/songs/Aasa Kooda.mp3"
+      "audio": "/valentine-website/assets/songs/Aasa-Kooda.mp3",
+      "video": "/valentine-website/assets/songs/Aasa-Kooda.mp4"
     },
     {
       "id": 5,
@@ -137,7 +141,58 @@
       "album": "3",
       "artist": "",
       "cover": "/valentine-website/assets/album-covers/neeparthavizhigal.jpg",
-      "audio": "/valentine-website/assets/songs/Nee-paartha-vizhigal.mp3"
+      "audio": "/valentine-website/assets/songs/Nee-paartha-vizhigal.mp3",
+      "video": "/valentine-website/assets/songs/Nee-paartha-vizhigal.mp4"
+    },
+    {
+      "id": 6,
+      "title": "Ragasiya Kanavugal",
+      "duration": "5.59",
+      "album": "Bheema",
+      "artist": "",
+      "cover": "/valentine-website/assets/album-covers/Ragasiya-Kanavugal.jpg",
+      "audio": "/valentine-website/assets/songs/Ragasiya-Kanavugal.mp3",
+      "video": "/valentine-website/assets/songs/Ragasiya-Kanavugal.mp4"
+    },
+    {
+      "id": 7,
+      "title": "Poovukkul Olindhirukkum",
+      "duration": "6.56",
+      "album": "Jeans",
+      "artist": "",
+      "cover": "/valentine-website/assets/album-covers/Poovukkul.jpg",
+      "audio": "/valentine-website/assets/songs/Poovukkul.mp3",
+      "video": "/valentine-website/assets/songs/Poovukkul.mp4"
+    },
+    {
+      "id": 8,
+      "title": "Munbe Vaa",
+      "duration": "5.57",
+      "album": "Sillunu Oru Kaadhal",
+      "artist": "",
+      "cover": "/valentine-website/assets/album-covers/Munbe-Vaa.jpg",
+      "audio": "/valentine-website/assets/songs/Munbe-Vaa.mp3",
+      "video": "/valentine-website/assets/songs/Munbe-Vaa.mp4"
+    },
+    {
+      "id": 9,
+      "title": "Sollayo Solaikili",
+      "duration": "6.35",
+      "album": "Alli Arjuna",
+      "artist": "",
+      "cover": "/valentine-website/assets/album-covers/Sollayo-Solaikili.jpg",
+      "audio": "/valentine-website/assets/songs/Sollayo-Solaikili.mp3",
+      "video": "/valentine-website/assets/songs/Sollayo-Solaikili.mp4"
+    },
+     {
+      "id": 10,
+      "title": "Enadhuyire",
+      "duration": "4.44",
+      "album": "Bheema",
+      "artist": "",
+      "cover": "/valentine-website/assets/album-covers/Enadhuyirae.jpg",
+      "audio": "/valentine-website/assets/songs/Enadhuyirae.mp3",
+      "video": "/valentine-website/assets/songs/Enadhuyirae.mp4"
     }
   ],
   "letter": {
