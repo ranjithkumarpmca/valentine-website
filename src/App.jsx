@@ -588,8 +588,8 @@ const handleLogin = useCallback(async () => {
                         borderRadius: "12px",
                         objectFit: "cover",
                         visibility: isVideoMode ? "visible" : "hidden",
-                        height: isVideoMode ? "200px" : "0px",
-                        maxHeight: "200px",
+                        height: isVideoMode ? "300px" : "0px",
+                        maxHeight: "300px",
                       }}
                       onTimeUpdate={() => {
                         if (isVideoMode && videoRef.current) {

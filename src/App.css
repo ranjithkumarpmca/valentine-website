@@ -650,8 +650,9 @@ body {
 }
 
 .album-art-frame {
-  width: 220px;
-  height: 220px;
+  width: 100%;
+  max-width: 340px;
+  height: auto;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
