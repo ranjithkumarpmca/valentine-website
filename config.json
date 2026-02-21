@@ -102,7 +102,7 @@
       "artist": "",
       "cover": "/valentine-website/assets/album-covers/maalai-mangum.jpg",
       "audio": "/valentine-website/assets/songs/Malai-Mangum-Neram.mp3",
-      "video": "/valentine-website/assets/songs/Malai-Mangum-Neram.mp4"
+      "video": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674581/Malai-Mangum-Neram_hzp8pl.mp4"
     },
     {
       "id": 2,
@@ -112,7 +112,7 @@
       "artist": "",
       "cover": "/valentine-website/assets/album-covers/orukili.jpg",
       "audio": "/valentine-website/assets/songs/Oru-Kili.mp3",
-      "video": "/valentine-website/assets/songs/Oru-Kili.mp4"
+      "video": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674598/Oru-Kili_ru4at1.mp4"
     },
     {
       "id": 3,
@@ -122,7 +122,7 @@
       "artist": "",
       "cover": "/valentine-website/assets/album-covers/oorumblood.jpg",
       "audio": "/valentine-website/assets/songs/Oorum-blood.mp3",
-      "video": "/valentine-website/assets/songs/Oorum-blood.mp4"
+      "video": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674603/Oorum-blood_yawqrs.mp4"
     },
     {
       "id": 4,
@@ -132,7 +132,7 @@
       "artist": "",
       "cover": "/valentine-website/assets/album-covers/aasakooda.jpg",
       "audio": "/valentine-website/assets/songs/Aasa-Kooda.mp3",
-      "video": "/valentine-website/assets/songs/Aasa-Kooda.mp4"
+      "video": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674577/Aasa-Kooda_dxmbtr.mp4"
     },
     {
       "id": 5,
@@ -142,7 +142,7 @@
       "artist": "",
       "cover": "/valentine-website/assets/album-covers/neeparthavizhigal.jpg",
       "audio": "/valentine-website/assets/songs/Nee-paartha-vizhigal.mp3",
-      "video": "/valentine-website/assets/songs/Nee-paartha-vizhigal.mp4"
+      "video": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674593/Nee-paartha-vizhigal_e42flp.mp4"
     },
     {
       "id": 6,
@@ -152,7 +152,7 @@
       "artist": "",
       "cover": "/valentine-website/assets/album-covers/Ragasiya-Kanavugal.jpg",
       "audio": "/valentine-website/assets/songs/Ragasiya-Kanavugal.mp3",
-      "video": "/valentine-website/assets/songs/Ragasiya-Kanavugal.mp4"
+      "video": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674590/Ragasiya-Kanavugal_ack8g0.mp4"
     },
     {
       "id": 7,
@@ -162,7 +162,7 @@
       "artist": "",
       "cover": "/valentine-website/assets/album-covers/Poovukkul.jpg",
       "audio": "/valentine-website/assets/songs/Poovukkul.mp3",
-      "video": "/valentine-website/assets/songs/Poovukkul.mp4"
+      "video": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674892/Poovukkul_m4nt5o.mp4"
     },
     {
       "id": 8,
@@ -172,7 +172,7 @@
       "artist": "",
       "cover": "/valentine-website/assets/album-covers/Munbe-Vaa.jpg",
       "audio": "/valentine-website/assets/songs/Munbe-Vaa.mp3",
-      "video": "/valentine-website/assets/songs/Munbe-Vaa.mp4"
+      "video": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674585/Munbe-Vaa_sigw0y.mp4"
     },
     {
       "id": 9,
@@ -182,7 +182,7 @@
       "artist": "",
       "cover": "/valentine-website/assets/album-covers/Sollayo-Solaikili.jpg",
       "audio": "/valentine-website/assets/songs/Sollayo-Solaikili.mp3",
-      "video": "/valentine-website/assets/songs/Sollayo-Solaikili.mp4"
+      "video": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674604/Sollayo-Solaikili_ugzfgu.mp4"
     },
      {
       "id": 10,
@@ -192,7 +192,7 @@
       "artist": "",
       "cover": "/valentine-website/assets/album-covers/Enadhuyirae.jpg",
       "audio": "/valentine-website/assets/songs/Enadhuyirae.mp3",
-      "video": "/valentine-website/assets/songs/Enadhuyirae.mp4"
+      "video": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674561/Enadhuyirae_c0lak7.mp4"
     }
   ],
   "letter": {
