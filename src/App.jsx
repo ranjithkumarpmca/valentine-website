@@ -208,6 +208,7 @@ const handleLogin = useCallback(async () => {
           const syncTime = audioRef.current.currentTime;
           audioRef.current.pause();
           setIsVideoMode(true);
+          setIsPlaying(true);
           setTimeout(() => {
             if (videoRef.current) {
               videoRef.current.currentTime = syncTime;
