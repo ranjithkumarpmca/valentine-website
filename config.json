@@ -101,7 +101,7 @@
       "album": "Rowthiram",
       "artist": "",
       "cover": "/valentine-website/assets/album-covers/maalai-mangum.jpg",
-      "audio": "/valentine-website/assets/songs/Malai-Mangum-Neram.mp3",
+      "audio": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674533/Malai-Mangum-Neram_w63wfz.mp3",
       "video": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674581/Malai-Mangum-Neram_hzp8pl.mp4"
     },
     {
@@ -121,7 +121,7 @@
       "album": "Dude",
       "artist": "",
       "cover": "/valentine-website/assets/album-covers/oorumblood.jpg",
-      "audio": "/valentine-website/assets/songs/Oorum-blood.mp3",
+      "audio": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674532/Oorum-blood_kvxn18.mp3",
       "video": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674603/Oorum-blood_yawqrs.mp4"
     },
     {
@@ -131,7 +131,7 @@
       "album": "Album",
       "artist": "",
       "cover": "/valentine-website/assets/album-covers/aasakooda.jpg",
-      "audio": "/valentine-website/assets/songs/Aasa-Kooda.mp3",
+      "audio": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674530/Aasa-Kooda_ry9l5o.mp3",
       "video": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674577/Aasa-Kooda_dxmbtr.mp4"
     },
     {
@@ -141,7 +141,7 @@
       "album": "3",
       "artist": "",
       "cover": "/valentine-website/assets/album-covers/neeparthavizhigal.jpg",
-      "audio": "/valentine-website/assets/songs/Nee-paartha-vizhigal.mp3",
+      "audio": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674541/Nee-paartha-vizhigal_ilxm7g.mp3",
       "video": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674593/Nee-paartha-vizhigal_e42flp.mp4"
     },
     {
@@ -171,7 +171,7 @@
       "album": "Sillunu Oru Kaadhal",
       "artist": "",
       "cover": "/valentine-website/assets/album-covers/Munbe-Vaa.jpg",
-      "audio": "/valentine-website/assets/songs/Munbe-Vaa.mp3",
+      "audio": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674536/Munbe-Vaa_yocede.webm",
       "video": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674585/Munbe-Vaa_sigw0y.mp4"
     },
     {
@@ -191,7 +191,7 @@
       "album": "Bheema",
       "artist": "",
       "cover": "/valentine-website/assets/album-covers/Enadhuyirae.jpg",
-      "audio": "/valentine-website/assets/songs/Enadhuyirae.mp3",
+      "audio": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674529/Enadhuyirae_yviuxg.webm",
       "video": "https://res.cloudinary.com/dscgbe9so/video/upload/v1771674561/Enadhuyirae_c0lak7.mp4"
     }
   ],
