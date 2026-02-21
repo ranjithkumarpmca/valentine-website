@@ -28,6 +28,8 @@ jobs:
           chmod +x ./node_modules/.bin/vite
           # Direct-ah build pannalaam, CI=false warnings-ah handle pannum
           CI=false ./node_modules/.bin/vite build
+        env:
+          VITE_MAINTENANCE_MODE: ${{ vars.VITE_MAINTENANCE_MODE }}
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
