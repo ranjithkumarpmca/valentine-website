@@ -177,14 +177,28 @@ function App() {
     setCurrentSongIndex((prev) => (prev - 1 + songs.length) % songs.length);
   }, [songs.length]);
 
+  // const handleSongSelect = useCallback((index) => {
+  //   setCurrentSongIndex(index);
+  //   if (audioRef.current) {
+  //     // audioRef.current.load();
+  //     // audioRef.current.play();
+  //     setIsPlaying(true);
+  //   }
+  // }, []);
+
   const handleSongSelect = useCallback((index) => {
     setCurrentSongIndex(index);
+    setIsPlaying(true);
+  }, []);
+
+  useEffect(() => {
     if (audioRef.current) {
       audioRef.current.load();
-      audioRef.current.play();
-      setIsPlaying(true);
+      if (isPlaying) {
+        audioRef.current.play();
+      }
     }
-  }, []);
+  }, [currentSongIndex]);
 
   const handleTimeUpdate = useCallback(() => {
     if (audioRef.current) {
