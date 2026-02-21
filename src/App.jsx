@@ -16,6 +16,7 @@ import { config } from "./config";
 
 const CORRECT_HASH = "4c2a1c6301416b0e5291d0fd12d7aebc01f3b494fb4d39f2e9b6fa9c058099f9";
 
+
 function App() {
   const [noLabel, setNoLabel] = useState("NO 💔");
   const [showHoverPopup, setShowHoverPopup] = useState(false);
@@ -101,6 +102,27 @@ const handleLogin = useCallback(async () => {
   const interval = setInterval(createHeart, 800);
   return () => clearInterval(interval);
 }, [isLoggedIn]);
+
+const [timeElapsed, setTimeElapsed] = useState({});
+
+useEffect(() => {
+  const calculateTime = () => {
+    const metDate = new Date("2025-11-20");
+    const now = new Date();
+    const diff = now - metDate;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    setTimeElapsed({ days, hours, minutes, seconds });
+  };
+
+  calculateTime();
+  const timer = setInterval(calculateTime, 1000);
+  return () => clearInterval(timer);
+}, []);
 
   const handleNoEnter = useCallback(() => {
     // if (!hoveredOnce) {
@@ -480,6 +502,66 @@ const handleLogin = useCallback(async () => {
               }}
             >
               I LOVE YOU❤️
+            <motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.5, duration: 0.6 }}
+  style={{ textAlign: "center", margin: "16px 0" }}
+>
+  <p style={{ 
+    color: "#7a1143",
+    WebkitTextFillColor: "#7a1143",
+    fontFamily: "Playfair Display, serif", 
+    fontSize: "16px", 
+    fontWeight: 600, 
+    marginBottom: "12px" 
+  }}>
+    💝 It's been this long since we last met...
+  </p>
+  <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
+    {[
+      { value: timeElapsed.days, label: "Days" },
+      { value: timeElapsed.hours, label: "Hours" },
+      { value: timeElapsed.minutes, label: "Minutes" },
+      { value: timeElapsed.seconds, label: "Seconds" },
+    ].map(({ value, label }) => (
+      <div key={label} style={{ 
+        background: "linear-gradient(135deg, #ff9a9e, #fad0c4)", 
+        borderRadius: "12px", 
+        padding: "12px 16px", 
+        minWidth: "70px", 
+        display: "flex", 
+        flexDirection: "column", 
+        alignItems: "center", 
+        boxShadow: "0 4px 15px rgba(255, 122, 162, 0.3)" 
+      }}>
+        <span style={{ 
+          fontSize: "28px", 
+          fontWeight: 800, 
+          color: "#7a1143",
+          WebkitTextFillColor: "#7a1143",
+          lineHeight: 1, 
+          fontFamily: "Playfair Display, serif",
+          display: "block"
+        }}>
+          {value}
+        </span>
+        <span style={{ 
+          fontSize: "11px", 
+          color: "#7a1143",
+          WebkitTextFillColor: "#7a1143",
+          fontWeight: 600, 
+          marginTop: "4px", 
+          textTransform: "uppercase", 
+          fontFamily: "Playfair Display, serif",
+          display: "block"
+        }}>
+          {label}
+        </span>
+      </div>
+    ))}
+  </div>
+</motion.div>
             </motion.h2>
           </motion.div>
 
