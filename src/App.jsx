@@ -1,6 +1,7 @@
 import { useState, useMemo, useCallback, useRef,useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { config } from "./config";
+import SnakeGame from "./SnakeGame";
 
 
 //For new Password generation when you wants in future
@@ -184,10 +185,10 @@ useEffect(() => {
     setView("letter");
   }, [handleGiftClick]);
 
-  // const handleGift3Click = useCallback(() => {
-  //   handleGiftClick("photos");
-  //   setView("photos");
-  // }, [handleGiftClick]);
+  const handleGift3Click = useCallback(() => {
+    handleGiftClick("snake");
+    setView("snake");
+  }, [handleGiftClick]);
 
   // Media player functions
   const currentSong = useMemo(
@@ -605,12 +606,12 @@ useEffect(() => {
               </div>
             </div>
 
-            {/* <div className="gift-card" onClick={handleGift3Click}>
+            <div className="gift-card" onClick={handleGift3Click}>
               <h3 className="gift-title">Gift 3</h3>
               <div className="gift-image">
                 <img src={config.gifts.gift3} alt="gift 3" loading="lazy" />
               </div>
-            </div> */}
+            </div>
           </div>
 
           {allGiftsOpened ? (
@@ -889,33 +890,16 @@ useEffect(() => {
     );
   }
 
-  if (view === "photos") {
-    return (
-      <div className="valentine-root photos">
-        <div className="card photos-card">
-          <h1 className="yay">{config.content.photosTitle}</h1>
-          <div className="photos-grid">
-            {config.couplePhotos.map((photo, index) => (
-              <motion.div
-                key={index}
-                className="photo-card"
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              >
-                <div className={`photo-frame vintage-${index + 1}`}>
-                  <img
-                    src={photo.image}
-                    alt={`Memory ${index + 1}`}
-                    loading="lazy"
-                  />
-                </div>
-                <p className="photo-caption">{photo.caption}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          <div style={{ height: 12 }} />
-          <button className="btn yes" onClick={() => setView("gifts")}>
+  if (view === "snake") {
+      return (
+      <div className="valentine-root">
+        <div style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <SnakeGame />
+          <button 
+            className="btn yes" 
+            onClick={() => setView("gifts")}
+            style={{ marginTop: 16, marginBottom: 24 }}
+          >
             {config.navigation.backToGifts}
           </button>
         </div>

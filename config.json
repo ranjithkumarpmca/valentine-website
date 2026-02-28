@@ -42,7 +42,8 @@
   },
   "gifts": {
     "gift1": "/valentine-website/assets/gift/gift1.jpg",
-    "gift2": "/valentine-website/assets/gift/gift2.jpg"
+    "gift2": "/valentine-website/assets/gift/gift2.jpg",
+    "gift3": "/valentine-website/assets/gift/gift3.jpg"
   },
   "couplePhotos": [
     {
