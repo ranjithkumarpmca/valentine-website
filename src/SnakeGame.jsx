@@ -316,10 +316,6 @@ export default function SnakeGame() {
         <DPadBtn label="→" col={3} row={2} onClick={() => handleDir({ x: 1, y: 0 })} />
         <DPadBtn label="↓" col={2} row={3} onClick={() => handleDir({ x: 0, y: 1 })} />
       </div>
-
-      <p style={{ color: "rgba(255,255,255,0.2)", fontSize: "0.75rem", marginTop: 16 }}>
-        WASD / Arrow keys · Swipe on mobile
-      </p>
     </div>
   );
 }
