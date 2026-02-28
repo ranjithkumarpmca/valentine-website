@@ -1026,3 +1026,20 @@ body {
   max-width: 750px;
   width: calc(100% - 40px);
 }
+
+
+#hearts-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* black cards & game always above */
+.valentine-root,
+.card,
+.games-card {
+  position: relative;
+  z-index: 2;
+}

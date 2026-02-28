@@ -87,7 +87,8 @@ const handleLogin = useCallback(async () => {
       animation: none;
     `;
     
-    document.body.appendChild(heart);
+    const container = document.getElementById("hearts-bg");
+    if (container) container.appendChild(heart);
     
     let pos = -50;
     const moveUp = setInterval(() => {
@@ -458,6 +459,7 @@ useEffect(() => {
   if (view === "success") {
     return (
       <div className="valentine-root success">
+        <div id="hearts-bg"></div>
         <div className="card success-card">
           <h1 className="yay">{config.content.successMessage}</h1>
           <p className="subtitle small">{config.content.successSubtitle}</p>
@@ -590,6 +592,7 @@ useEffect(() => {
   if (view === "gifts") {
     return (
       <div className="valentine-root gifts">
+        <div id="hearts-bg"></div>
         <div className="card gifts-card">
           <h1 className="yay">{config.content.giftsTitle}</h1>
 
@@ -646,6 +649,7 @@ useEffect(() => {
   if (view === "songs") {
     return (
       <div className="valentine-root songs">
+        <div id="hearts-bg"></div>
         <div className="card songs-card">
           <h1 className="yay">{config.content.songsTitle}</h1>
 
@@ -912,6 +916,7 @@ useEffect(() => {
   if (view === "games") {
   return (
     <div className="valentine-root">
+      <div id="hearts-bg"></div>
       <div className="card games-card" style={{ textAlign: "center" }}>
         <h1 className="yay">🎮 Welcome to the Games Section 🎮</h1>
         <p className="subtitle small">
@@ -969,6 +974,7 @@ useEffect(() => {
 if (view === "playGame") {
   return (
     <div className="valentine-root">
+      <div id="hearts-bg"></div>
       <div style={{ textAlign: "center" }}>
 
         {selectedGame === "snake" && <SnakeGame />}
@@ -990,6 +996,7 @@ if (view === "playGame") {
   if (view === "letter") {
     return (
       <div className="valentine-root letter">
+        <div id="hearts-bg"></div>
         <div className="card letter-card">
           <h1 className="yay">{config.content.letterTitle}</h1>
           <motion.div
@@ -1055,6 +1062,7 @@ if (view === "playGame") {
         exit={{ opacity: 0, y: -20 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
       >
+        <div id="hearts-bg"></div>
         <motion.div
           className="card"
           initial={{ scale: 0.9 }}
