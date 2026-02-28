@@ -2,6 +2,7 @@ import { useState, useMemo, useCallback, useRef,useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { config } from "./config";
 import SnakeGame from "./SnakeGame";
+import CatchHearts from "./CatchHearts";
 
 
 //For new Password generation when you wants in future
@@ -31,6 +32,7 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState(false);
+  const [selectedGame, setSelectedGame] = useState(null);
 
   // Media player state
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
@@ -185,10 +187,10 @@ useEffect(() => {
     setView("letter");
   }, [handleGiftClick]);
 
-  const handleGift3Click = useCallback(() => {
-    handleGiftClick("snake");
-    setView("snake");
-  }, [handleGiftClick]);
+ const handleGift3Click = useCallback(() => {
+  handleGiftClick("games");
+  setView("games");
+}, [handleGiftClick]);
 
   // Media player functions
   const currentSong = useMemo(
@@ -890,22 +892,100 @@ useEffect(() => {
     );
   }
 
-  if (view === "snake") {
-      return (
-      <div className="valentine-root">
-        <div style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <SnakeGame />
-          <button 
-            className="btn yes" 
-            onClick={() => setView("gifts")}
-            style={{ marginTop: 16, marginBottom: 24 }}
+  // if (view === "snake") {
+  //     return (
+  //     <div className="valentine-root">
+  //       <div style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "center" }}>
+  //         <SnakeGame />
+  //         <button 
+  //           className="btn yes" 
+  //           onClick={() => setView("gifts")}
+  //           style={{ marginTop: 16, marginBottom: 24 }}
+  //         >
+  //           {config.navigation.backToGifts}
+  //         </button>
+  //       </div>
+  //     </div>
+  //   );
+  // }
+
+  if (view === "games") {
+  return (
+    <div className="valentine-root">
+      <div className="card games-card" style={{ textAlign: "center" }}>
+        <h1 className="yay">🎮 Welcome to the Games Section 🎮</h1>
+        <p className="subtitle small">
+          Choose a game and let the fun begin 💕
+        </p>
+
+        <div style={{
+          display: "flex",
+          gap: "24px",
+          justifyContent: "center",
+          marginTop: "32px",
+          flexWrap: "wrap"
+        }}>
+          
+          {/* Snake Game Card */}
+          <motion.div
+            className="game-card"
+            whileHover={{ scale: 1.05, y: -5 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => {
+              setSelectedGame("snake");
+              setView("playGame");
+            }}
           >
+            <img src={config.media.musicBearGif} alt="snake" width="120" />
+            <h3>🐍 Snake Game</h3>
+          </motion.div>
+
+          {/* Catch Hearts Game Card */}
+          <motion.div
+            className="game-card"
+            whileHover={{ scale: 1.05, y: -5 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => {
+              setSelectedGame("catchHearts");
+              setView("playGame");
+            }}
+          >
+            <img src={config.media.loveYouBearGif} alt="hearts" width="120" />
+            <h3>💖 Catch Hearts</h3>
+          </motion.div>
+
+        </div>
+
+        <div style={{ marginTop: 32 }}>
+          <button className="btn yes" onClick={() => setView("gifts")}>
             {config.navigation.backToGifts}
           </button>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
+}
+
+if (view === "playGame") {
+  return (
+    <div className="valentine-root">
+      <div style={{ textAlign: "center" }}>
+
+        {selectedGame === "snake" && <SnakeGame />}
+
+        {selectedGame === "catchHearts" && <CatchHearts />}
+
+        <button
+          className="btn yes"
+          style={{ marginTop: 20 }}
+          onClick={() => setView("games")}
+        >
+          ⬅ Back to Games
+        </button>
+      </div>
+    </div>
+  );
+}
 
   if (view === "letter") {
     return (
