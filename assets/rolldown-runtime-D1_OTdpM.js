@@ -1,0 +1,1 @@
+Object.create,Object.defineProperty,Object.getOwnPropertyDescriptor,Object.getOwnPropertyNames,Object.getPrototypeOf,Object.prototype.hasOwnProperty;var e=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports);export{e as t};
